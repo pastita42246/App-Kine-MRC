@@ -1,18 +1,18 @@
 import streamlit as st
-from modulo_ena import mostrar_ena  # <--- Esta es la línea clave que conecta los archivos
+from modulo_ena import mostrar_ena
+from modulo_mrc import mostrar_mrc  # 1. Traemos la herramienta en la mochila
 
 def main():
     st.set_page_config(page_title="App Clínica - Kine", layout="centered")
     
     st.title("Sistema de Evaluación Clínica ⚡")
-    st.write("Bienvenido, selecciona el test que deseas realizar:")
+    st.write("Bienvenido, completa la evaluación del paciente:")
 
-    # Aquí llamamos a la función que vive en tu otro archivo
+    # 2. Ejecutamos el primer test (Dolor)
     nivel_dolor = mostrar_ena()
 
-    # Si quisieras agregar más tests luego, solo añadirás líneas aquí abajo
-    # st.write("---")
-    # st.write("Próximo test: MRC Sum Score...")
+    # 3. Ejecutamos el segundo test (MRC Sum Score)
+    puntaje_mrc = mostrar_mrc()
 
 if __name__ == "__main__":
     main()
